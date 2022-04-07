@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>
+        <input type="hidden" name="bid" value="{{ book_obj.bid }}">
+    </p>
+    <p>
+        <label>图书名称</label><input type="text" name="bname" value="{{ book_obj.bname }}">
+    </p>
+    <p>
+        <label>价格</label><input type="text" name="price" value="{{ book_obj.price }}">
+    </p>
+    <p>
+        <label>库存</label><input type="text" name="inventery" value="{{ book_obj.inventery }}">
+    </p>
+    <p>
+        <label>卖出数</label><input type="text" name="sale_num" value="{{ book_obj.sale_num }}">
+    </p>
+    <p>
+        <label>出版社</label><input type="text" name="publisher_id" value="{{ book_obj.publisher.id}}">
+    </p>
+    <p>
+        <input type="submit" value="提交">
+    </p>
+</form>
+</body>
+</html>

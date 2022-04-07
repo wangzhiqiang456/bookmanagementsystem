@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table width="500px" cellspacing="0" border="1" >
+    <tr>
+        <th>序号</th>
+        <th>出版社id</th>
+        <th>名称</th>
+        <th>地址</th>
+        <th>操作</th>
+    </tr>
+    {% for publisher_list in publisher_obj_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ publisher_list.id }}</td>
+            <td>{{ publisher_list.name }}</td>
+            <td>{{ publisher_list.address }}</td>
+            <td>
+                <a href="/book/edit_publisher/?id={{ publisher_list.id }}">修改</a>
+                <a href="/book/delete_publisher/?id={{ publisher_list.id }}">删除</a>
+            </td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

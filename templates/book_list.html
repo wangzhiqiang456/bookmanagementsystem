@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table width="500px" cellspacing="0" border="1">
+    <tr>
+        <th>序号</th>
+        <th>图书id</th>
+        <th>图书名</th>
+        <th>价格</th>
+        <th>库存</th>
+        <th>卖出数</th>
+        <th>出版社</th>
+        <th>操作</th>
+    </tr>
+    {% for book_obj in book_obj_list %}
+         <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ book_obj.bid }}</td>
+              <td>{{ book_obj.bname }}</td>
+              <td>{{ book_obj.price }}</td>
+              <td>{{ book_obj.inventery }}</td>
+              <td>{{ book_obj.sale_num }}</td>
+              <td>{{ book_obj.publisher.name }}</td>
+              <td>
+                  <a href="/book/edit_book/?id={{ book_obj.bid }}">修改</a>
+                  <a href="/book/delete_book/?id={{ book_obj.bid }}">删除</a>
+              </td>
+         </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

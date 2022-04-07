@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table width="500px" cellspacing="0" border="1">
+    <tr>
+        <th>序号</th>
+        <th>作者id</th>
+        <th>作者</th>
+        <th>图书</th>
+        <th>操作</th>
+    </tr>
+        {% for res_dic in ret_list %}
+           <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ res_dic.author_obj.id }}</td>
+                <td>{{ res_dic.author_obj.name }}</td>
+                <td>
+                    {% for book_obj in res_dic.book_list %}
+
+                            {{ book_obj.bname }}
+
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="/book/edit_author/?id={{ res_dic.author_obj.id }}">修改</a>
+                    <a href="/book/delete_author/?id={{ res_dic.author_obj.id }}">删除</a>
+                </td>
+           </tr>
+        {% endfor %}
+</table>
+</body>
+</html>
